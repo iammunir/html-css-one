@@ -3,25 +3,48 @@
     margin: 0;
     padding: 0;
     border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
     box-sizing: border-box;
 }
 
 html {
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    font-size: 62.5%;
+    /* this is to get the default font size 10px, so that working with REM is easier rather than 16px default font size || math >> (10 / 16) * 100  */
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: #333;
     background-color: rgb(216, 226, 245);
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.icon {
+    width: 2rem;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
 
 .container {
+    max-width: 120rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-wrapper {
     margin: auto;
-    max-width: 1200px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -30,10 +53,10 @@ body {
 }
 
 .card {
-    margin: 16px;
-    max-width: 250px;
+    margin: 1.6rem;
+    max-width: 25rem;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: .8rem;
     transition: all .5s;
 }
 
@@ -41,97 +64,113 @@ body {
     transform: scale(1.02);
 }
 
-.card-header {
+.card__header {
     display: flex;
 }
 
-.card-header__image {
-    width: 50px;
-    height: 50px;
-    margin: 12px;
+.card__header-img {
+    width: 5rem;
+    height: 5rem;
+    margin: 1.2rem;
     border-radius: 50%;
     overflow: hidden;
+    cursor: pointer;
 }
 
-.card-header__image img {
+.card__header-img img {
     max-width: 100%;
     height: auto;
     object-fit:cover;
 }
 
-.card-header__text {
+.card__header-text {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
-.text-secondary {
-    color: rgb(117, 113, 113);
-    font-size: 14px;
+.card__header-username {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
 }
 
-.image-container {
+.card__header-time {
+    opacity: .7;
+    font-size: 1.4rem;
+}
+
+.card__image {
     width: 100%;
 }
 
-.image-container img {
+.card__image img {
     width: 100%;
-    height: 200px;
+    height: 20rem;
     object-fit: cover;
 }
 
-.icon-container {
-    margin: 8px 0;
+.card__icon-wrap {
+    margin: .8rem 0;
     display: flex;
     justify-content: flex-end;
 }
 
-.icon-container * {
-    width: 25px;
+.card__icon-wrap * {
     margin-right: 10px;
     cursor: pointer;
 }
 
-.card-content {
-    padding: 0 10px;
+.card__content {
+    padding: 0 1rem;
 }
 
-.title-container {
-    margin: 10px 0;
+.card__title-wrap {
+    margin: 1rem 0;
 }
 
-.title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 4px;
+.card__title {
+    font-size: 1.6rem;
+    font-weight: 100;
+    margin-bottom: .4rem;
 }
 
-.description {
-    font-size: 14px;
-    min-height: 100px;
+.card__title-desc {
+    font-size: 1.2rem;
+    opacity: .7;
 }
 
-.description .more {
+.card__desc {
+    font-size: 1.4rem;
+    min-height: 10rem;
+}
+
+.card__desc-more {
     display: none;
 }
 
-.card-footer {
+.card__footer {
     display: flex;
-    margin: 16px 0;
+    margin: 1.6rem 0;
     justify-content: space-between;
-}
-
-.btn {
-    text-transform: uppercase;
-    cursor: pointer;
-    font-size: 13px;
-    margin-right: 12px;
-    background-color: inherit;
+    align-items: center;
 }
 
 .chevron {
-    width: 16px;
+    width: 1.6rem;
+}
+
+.card__button {
+    text-transform: uppercase;
     cursor: pointer;
+    font-size: 1.3rem;
+    margin-right: 1.2rem;
+    background-color: inherit;
+    opacity: .7;
+}
+
+.card__button:focus {
+    outline: none;
 }
 
 /* modal (background) */
@@ -149,30 +188,34 @@ body {
 }
 
 /* modal content/box */
-  .modal-content {
-    min-height: 200px;
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
-  }
+.modal__content {
+min-height: 20rem;
+background-color: #fff;
+margin: 15% auto;
+padding: 2rem;
+border: 1px solid #888;
+width: 50%; 
+}
 
-  .modal-title {
-      margin-bottom: 16px;
-  }
+.modal__title {
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem;
+}
 
-  /* close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.modal__desc {
+    font-size: 1.4rem;
+}
+
+.modal__close {
+color: #aaa;
+float: right;
+font-size: 2.8rem;
+font-weight: bold;
+}
+
+.modal__close:hover,
+.modal__close:focus {
+color: #333;
+text-decoration: none;
+cursor: pointer;
+}

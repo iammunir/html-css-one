@@ -1,4 +1,4 @@
-const exploreButtons = document.getElementsByClassName('btn-explore');
+const exploreButtons = document.getElementsByClassName('card__button-explore');
 const modal = document.getElementById('modal-layer');
 const btnClose = document.getElementById('btn-close');
 
@@ -23,7 +23,7 @@ for (let exploreButton of exploreButtons) {
 // close the modal
 btnClose.addEventListener('click', () => modal.style.display = 'none');
 
-// when the user clicks anywhere outside of the modal, close it
+// close the modal when the user clicks anywhere outside of the modal
 window.addEventListener('click', (event) => {
     if (event.target == modal) modal.style.display = 'none';
 });
